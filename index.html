@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cake Decorator Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --grad-1: linear-gradient(135deg, #ffb6c1 0%, #ff6b81 40%, #ff1f4d 100%);
+      --card-grad: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.65));
+      --accent: #ff1f4d;
+    }
+
+    body {
+      background: radial-gradient(circle at 10% 10%, rgba(255,182,193,0.10), transparent 10%),
+                  radial-gradient(circle at 90% 90%, rgba(255,27,84,0.06), transparent 10%),
+                  #fff7fa;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: #331a1a;
+      padding-top: 1.5rem;
+    }
+
+    .hero {
+      background: var(--grad-1);
+      color: white;
+      border-radius: 18px;
+      padding: 3rem 1.5rem;
+      box-shadow: 0 8px 30px rgba(255, 31, 77, 0.15);
+    }
+
+    .logo {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: white;
+      display: inline-grid;
+      place-items: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      margin-right: .75rem;
+    }
+
+    .portfolio-card {
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform .22s ease, box-shadow .22s ease;
+      cursor: pointer;
+    }
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(255,31,77,0.14);
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.18);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 12px;
+      font-size: .85rem;
+      display: inline-block;
+    }
+
+    .contact-card {
+      background: var(--card-grad);
+      border: 1px solid rgba(255,31,77,0.06);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    footer.site-footer {
+      background: linear-gradient(90deg,#ffdde1,#ff9aa2);
+      color: #2a0f13;
+      padding: 1.25rem 0;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+
+    .social-btn {
+      display:inline-grid;
+      place-items:center;
+      width:44px;height:44px;border-radius:10px;
+      background: rgba(255,255,255,0.9);
+      border: 0;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    /* small responsive tweaks */
+    @media (max-width: 576px){
+      .hero { padding: 2rem .75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero mb-4">
+    <div class="d-flex align-items-center">
+      <div class="logo">
+        <!-- simple cake icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#ff1f4d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2c1 1 0 3 0 3s1.5-1 2 0c.5 1 0 2 0 2h-4s.5-1 0-2c-.5-1-2 0-2 0S11 3 12 2z"></path>
+          <rect x="3" y="9" width="18" height="8" rx="2"></rect>
+          <path d="M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"></path>
+        </svg>
+      </div>
+      <!-- Profile Photo -->
+<div class="text-center mb-3">
+  <div style="
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      overflow:hidden;
+      margin:auto;
+      border:4px solid #ff6b81;
+      box-shadow:0 6px 18px rgba(255, 31, 77, 0.25);
+    ">
+    <img src="jawo.png" alt="Profile Picture" style="width:100%; height:100%; object-fit:cover;">
+  </div>
+  <h5 class="mt-2 mb-0">Jaworski Rojo</h5>
+  <small class="text-muted">Cake Decorator / Designer</small>
+</div>
+      <div>
+
+        <h1 class="h3 mb-0">Jaworski Rojo Creations</h1>
+        <p class="mb-0">Handcrafted celebration cakes • Custom designs • Local delivery</p>
+        <div class="mt-2"><span class="tag">Birthday cakes</span> <span class="tag">Wedding</span> <span class="tag">Cupcakes</span></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row gy-4">
+    <!-- LEFT: PORTFOLIO GALLERY -->
+    <div class="col-lg-8">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h5 mb-0">Featured Cakes</h2>
+        <small class="text-muted">Click a photo to view larger</small>
+      </div>
+
+      <div class="row g-3">
+        <!-- Repeat a few cards - replace src with your images -->
+        <div class="col-sm-6">
+          <div class="portfolio-card card border-0" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Pink tiered cake" class="img-fluid">
+            <div class="p-2">
+              <strong>Pink Floral Tier</strong><br>
+              <small class="text-muted">Birthday • 3 tiers</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="portfolio-card card border-0" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+            <img src="https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Red buttercream cake" class="img-fluid">
+            <div class="p-2">
+              <strong>Red Velvet Elegance</strong><br>
+              <small class="text-muted">Anniversary • Buttercream</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="portfolio-card card border-0" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1612197529108-49f56fa9b2de?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+            <img src="https://images.unsplash.com/photo-1612197529108-49f56fa9b2de?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Decorated cake with berries" class="img-fluid">
+            <div class="p-2">
+              <strong>Berries & Gold</strong><br>
+              <small class="text-muted">Wedding • Semi-naked</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="portfolio-card card border-0" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1551022373-2af8b28a1e39?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+            <img src="https://images.unsplash.com/photo-1551022373-2af8b28a1e39?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Cute character cake" class="img-fluid">
+            <div class="p-2">
+              <strong>Character Cake</strong><br>
+              <small class="text-muted">Kids • Custom character</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="mt-4 p-3 contact-card">
+        <h3 class="h6 mb-2">About the Baker</h3>
+        <p class="mb-0">Hi — I'm jaworski, a custom cake decorator specializing in colorful, photogenic cakes for birthdays, weddings and special events. I work with buttercream, fondant, and edible gold for premium finishes. Delivery available within city limits; custom orders take 5–14 days depending on complexity.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: CONTACT / BOOKING -->
+    <div class="col-lg-4">
+      <div class="card contact-card mb-3">
+        <div class="card-body">
+          <h3 class="h6">Contact Info</h3>
+          <ul class="list-unstyled mb-3">
+            <li><strong>Name:</strong> Jaworski E. Rojo</li>
+            <li><strong>Birthday:</strong> September 12, </li>
+            <li><strong>Email:</strong> <a href="jaworojo30@gmail.com">jaworojo30@gmail.com</a></li>
+            <li><strong>Phone:</strong> <a href="cell:+97430736259">+639854067817</a></li>
+            <li><strong>Location:</strong> Doha, Qatar</li>
+          </ul>
+
+          <div class="mb-3">
+            <h4 class="h6">Quick Booking</h4>
+            <form id="bookingForm">
+              <div class="mb-2">
+                <input required type="text" class="form-control form-control-sm" id="name" placeholder="Your name">
+              </div>
+              <div class="mb-2">
+                <input required type="email" class="form-control form-control-sm" id="email" placeholder="Email">
+              </div>
+              <div class="mb-2">
+                <input type="date" class="form-control form-control-sm" id="date" placeholder="Event date">
+              </div>
+              <div class="d-grid">
+                <button class="btn" style="background:var(--accent); color:white;" id="sendBtn" type="submit">Send Inquiry</button>
+              </div>
+            </form>
+            <div id="bookingMessage" class="mt-2" style="display:none;"></div>
+          </div>
+
+          <div>
+            <h4 class="h6">Follow</h4>
+            <div class="d-flex gap-2">
+              <a class="social-btn" href="https://www.facebook.com/share/17j3QoKPET/" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
+                <i class="bi bi-facebook" style="font-size:1.25rem;"></i>
+              </a>
+              <a class="social-btn" href="https://instagram.com" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+                <i class="bi bi-instagram" style="font-size:1.25rem;"></i>
+              </a>
+              <a class="social-btn" href="https://tiktok.com" target="_blank" rel="noopener" title="TikTok" aria-label="TikTok">
+                <!-- TikTok icon as svg -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M9 2v11.5A4.5 4.5 0 1 0 13.5 18V8h3.5V5h-3.5V2H9z"></path>
+                </svg>
+              </a>
+              <a class="social-btn" href="https://youtube.com" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
+                <i class="bi bi-youtube" style="font-size:1.25rem;"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Testimonials / Small info -->
+      <div class="card contact-card">
+        <div class="card-body">
+          <h4 class="h6">Why choose us?</h4>
+          <ul class="mb-0">
+            <li>✔ Custom edible decorations</li>
+            <li>✔ Delivery & setup for weddings</li>
+            <li>✔ Allergy-friendly options available</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <strong>Jaworski's Cake Studio</strong><br>
+        <small>Handmade with love — custom orders & consultations</small>
+      </div>
+      <div class="text-end">
+        <small>Connect</small>
+        <div class="mt-1 d-flex gap-2 justify-content-end">
+          <a class="social-btn" href="https://facebook.com" target="_blank" rel="noopener" title="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a class="social-btn" href="https://instagram.com" target="_blank" rel="noopener" title="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a class="social-btn" href="https://tiktok.com" target="_blank" rel="noopener" title="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M9 2v11.5A4.5 4.5 0 1 0 13.5 18V8h3.5V5h-3.5V2H9z"></path>
+            </svg>
+          </a>
+          <a class="social-btn" href="https://youtube.com" target="_blank" rel="noopener" title="YouTube">
+            <i class="bi bi-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-3 small">
+      © <span id="year"></span> jaworski Studio — All rights reserved.
+    </div>
+  </footer>
+
+</div>
+
+<!-- IMAGE MODAL -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0">
+      <div class="modal-body p-0">
+        <button type="button" class="btn-close position-absolute m-3 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
+        <img id="modalImage" src="" alt="Large view" class="img-fluid w-100" style="border-radius:12px;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Set current year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Image modal: when a portfolio card is clicked, load the data-img into modal
+  document.querySelectorAll('.portfolio-card').forEach(card=>{
+    card.addEventListener('click', function(){
+      const img = this.getAttribute('data-img') || this.querySelector('img')?.src;
+      const modalImg = document.getElementById('modalImage');
+      modalImg.src = img;
+      // Optionally set alt from inner text
+      const title = this.querySelector('strong')?.textContent || 'Cake photo';
+      modalImg.alt = title;
+    });
+  });
+
+  // Simple client-side booking form behaviour (no backend) - shows toast message
+  const bookingForm = document.getElementById('bookingForm');
+  const bookingMessage = document.getElementById('bookingMessage');
+
+  bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const date = document.getElementById('date').value;
+    // Minimal validation done via required attributes
+    bookingMessage.style.display = 'block';
+    bookingMessage.className = 'alert alert-success small';
+    bookingMessage.textContent = `Thanks ${name || ''}! Your inquiry has been recorded. We will contact you at ${email}. (This demo does not send mail.)`;
+
+    // reset the form (optional)
+    bookingForm.reset();
+
+    // hide the message after 6 seconds
+    setTimeout(()=> bookingMessage.style.display='none', 6000);
+  });
+
+  // Accessibility: allow ESC to close modal image (Bootstrap already handles, but ensure focus)
+  const imageModal = document.getElementById('imageModal');
+  imageModal.addEventListener('shown.bs.modal', () => {
+    const closeBtn = imageModal.querySelector('.btn-close');
+    if (closeBtn) closeBtn.focus();
+  });
+</script>
+
+</body>
+</html>
